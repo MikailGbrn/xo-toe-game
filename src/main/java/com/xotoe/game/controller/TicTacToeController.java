@@ -69,11 +69,8 @@ public class TicTacToeController {
     }
     @GetMapping("/play-game")
     public ModelAndView playGame(
-            @RequestParam(value = "tileSize", required = false) Integer tileSize
+            @RequestParam(value = "tileSize") Integer tileSize
     ) {
-        if (Objects.isNull(tileSize)) {
-            tileSize = this.gameData.getTileSize();
-        }
         return this.xoToe(tileSize);
     }
 
