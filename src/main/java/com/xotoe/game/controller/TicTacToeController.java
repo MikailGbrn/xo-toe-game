@@ -71,7 +71,10 @@ public class TicTacToeController {
     public ModelAndView playGame(
             @RequestParam(value = "tileSize", required = false) Integer tileSize
     ) {
-            return this.xoToe(tileSize);
+        if (Objects.isNull(tileSize)) {
+            tileSize = this.gameData.getTileSize();
+        }
+        return this.xoToe(tileSize);
     }
 
     @RequestMapping({"/play-game"})
@@ -82,6 +85,11 @@ public class TicTacToeController {
         ModelAndView modelAndView = new ModelAndView("tac");
         String[][] board = new String[tileSize][tileSize];
         Arrays.stream(board).forEach((row) -> Arrays.fill(row, " "));
+        if (tileSize > 5) {
+            modelAndView.addObject("gameRule", "Place 4 in a row!");
+        } else {
+            modelAndView.addObject("gameRule", "Place 3 in a row!");
+        }
         modelAndView.addObject("board", board);
         return modelAndView;
     }

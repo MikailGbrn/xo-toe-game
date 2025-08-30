@@ -104,11 +104,73 @@ h2, h3 {
 }
 
 .status-banner.winner {
-    background-color: #4caf50; /* green */
+    background-color: #4caf50;
     color: white;
 }
 
 .status-banner.draw {
-    background-color: #f57c00; /* orange */
+    background-color: #f57c00;
+    color: white;
+}
+
+.reset-button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 30%;
+   flex-direction: column;
+   gap: 6px;
+}
+
+.reset-button button {
+    background: url('/img/Flat_restart_icon.svg.png') no-repeat center center;
+    background-size: 80%;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.reset-button button:hover {
+    background-color: #d9d7d7
+}
+
+.reset-button button:active {
+    background-size: 70%;
+}
+
+.change-size {
+    display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       gap: 6px;
+}
+
+.change-size button {
+    background: url('/img/gear-icon.png') no-repeat center center;
+        background-size: 80%;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+}
+
+.change-size button:hover {
+    background-color: #d9d7d7
+}
+
+.change-size button:active {
+    background-size: 70%;
+}
+
+.game-rule {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #a0a348;
     color: white;
 }
