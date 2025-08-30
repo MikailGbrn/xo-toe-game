@@ -12,17 +12,15 @@
     </header>
 
     <section>
-        <div id="game-status" class="status-banner">Next turn: X</div>
-    </section>
-
-    <section>
         <div class="game-rule" th:text="${gameRule}"></div>
     </section>
-    <section>
+
+    <section class="game-info">
         <div class="change-size">
             <button th:onclick="'changeSize()'"></button>
-            <p>Change Board Size</p>
+            <p>Change Board</p>
         </div>
+        <div id="game-status" class="status-banner">Next turn: X</div>
         <div class="reset-button">
             <button th:onclick="'resetBoard()'"></button>
             <p>Reset Board</p>
