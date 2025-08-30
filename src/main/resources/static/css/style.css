@@ -1,0 +1,114 @@
+header, section, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font: normal 20px Verdana, Arial, sans-serif;
+}
+
+h2, h3 {
+    font-size: 40px;
+}
+
+#mySlider {
+    width: 200%;
+    margin-top: 20px;
+}
+
+#sliderValue {
+    font-size: 50px;
+    font-weight: bold;
+    color: blue;
+    margin-left: 10px;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 700px;
+    height: 700px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 33.33%;
+}
+
+.cell {
+    justify-content: center;
+    align-items: center;
+    width: 33.33%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.cell button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+.cell span {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    width: 98%;
+    height: 98%;
+}
+
+.game-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.status-banner {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.status-banner.winner {
+    background-color: #4caf50; /* green */
+    color: white;
+}
+
+.status-banner.draw {
+    background-color: #f57c00; /* orange */
+    color: white;
+}

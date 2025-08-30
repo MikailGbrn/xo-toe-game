@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Xo-Toe Game</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <p>Welcome to XO-Toe!</p>
+        </header>
+
+        <section>
+            <div class="game-option">
+                <h2>Choose Tile Size</h2>
+                <form action="tac.html" th:action="@{/start-game}" th:Object="${gameData}" method="post">
+                    <div class="slider">
+                        <span id="sliderValue">3 x 3</span>
+                        <input type="range" id="mySlider" min="3" max="9" value="3" th:field="*{tileSize}">
+                        <p><input type="submit" value="Start Game" /></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <script>
+            const mySlider = document.getElementById('mySlider');
+            const sliderValueDisplay = document.getElementById('sliderValue');
+
+            // Update the displayed value when the slider is moved
+            mySlider.addEventListener('input', () => {
+                sliderValueDisplay.textContent = mySlider.value + ' x ' + mySlider.value;
+            });
+
+            // Optionally, set the initial displayed value on page load
+            sliderValueDisplay.textContent = mySlider.value + ' x ' + mySlider.value;
+        </script>
+    </body>
+
+    <footer>
+        <p>Gibran Lubis</p>
+    </footer>
+
+</html>
