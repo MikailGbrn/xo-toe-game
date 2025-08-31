@@ -42,12 +42,26 @@ public class TicTacToeController {
         return "index";
     }
 
+    /**
+     * start the game with tile size data
+     *
+     * @param gameData
+     * @param result
+     * @return model and view of the game
+     */
     @PostMapping("/start-game")
     public ModelAndView startGame(@ModelAttribute("gameData") GameDataDTO gameData, BindingResult result) {
         this.gameData.setTileSize(gameData.tileSize);
         return this.playGame(gameData.getTileSize());
     }
 
+    /**
+     * Player takes turn in the game simultaneously checking for
+     * next player and check if the game has ended with winner or tie
+     *
+     * @param move
+     * @return Map of object with string key
+     */
     @PostMapping("/make-move")
     @ResponseBody
     public Map<String, Object> makeMove(@RequestBody MoveRequest move) {
@@ -62,10 +76,12 @@ public class TicTacToeController {
         return response; // send back updated board
     }
 
-    @GetMapping("/check-winner")
-    public String checkWinner() {
-        return gameService.checkWinner(gameData.getTileSize(), gameData.getTileSize() > 5 ? 4 : 3);
-    }
+    /**
+     * create game's board size with added data
+     *
+     * @param tileSize
+     * @return model and view of the game
+     */
     @GetMapping("/play-game")
     public ModelAndView playGame(
             @RequestParam(value = "tileSize") Integer tileSize
@@ -73,6 +89,13 @@ public class TicTacToeController {
         return this.xoToe(tileSize);
     }
 
+    /**
+     * create game's board size based on tile size
+     * and determine the game's rule based on tile size
+     *
+     * @param tileSize
+     * @return model and view of the game
+     */
     @RequestMapping({"/play-game"})
     public ModelAndView xoToe(
             @RequestParam("tileSize") Integer tileSize
