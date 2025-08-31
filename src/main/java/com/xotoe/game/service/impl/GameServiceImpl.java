@@ -16,7 +16,7 @@ public class GameServiceImpl implements GameService {
         board = new String[size][size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                board[i][j] = " "; // empty
+                board[i][j] = " ";
             }
         }
     }
@@ -51,13 +51,13 @@ public class GameServiceImpl implements GameService {
                 String player = board[row][col];
                 if (player == " ") continue;
 
-                if (checkDirection(row, col, 1, 0, player, size, winCondition)) return player; // horizontal
-                if (checkDirection(row, col, 0, 1, player, size, winCondition)) return player; // vertical
-                if (checkDirection(row, col, 1, 1, player, size, winCondition)) return player; // diagonal ↘
-                if (checkDirection(row, col, 1, -1, player, size, winCondition)) return player; // diagonal ↙
+                if (checkDirection(row, col, 1, 0, player, size, winCondition)) return player;
+                if (checkDirection(row, col, 0, 1, player, size, winCondition)) return player;
+                if (checkDirection(row, col, 1, 1, player, size, winCondition)) return player;
+                if (checkDirection(row, col, 1, -1, player, size, winCondition)) return player;
             }
         }
-        return null; // no winner yet
+        return null;
     }
 
     private boolean checkDirection(
@@ -75,7 +75,7 @@ public class GameServiceImpl implements GameService {
             int c = col + i * dCol;
 
             if (r < 0 || r >= size || c < 0 || c >= size) {
-                return false; // out of bounds
+                return false;
             }
 
             if (board[r][c] == player) {
@@ -91,10 +91,10 @@ public class GameServiceImpl implements GameService {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (Objects.equals(board[i][j], " ")) {
-                    return false; // still empty spots
+                    return false;
                 }
             }
         }
-        return (checkWinner(size, winCondition) == null); // full but no winner
+        return (checkWinner(size, winCondition) == null);
     }
 }
